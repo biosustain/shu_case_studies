@@ -1,0 +1,334 @@
+name = "Kinetic model of E. coli glycolysis and Pentose Phosphate pathway"
+
+compartment = [
+  {id = "c", name = "cytosol", volume = 1}
+]
+
+metabolite = [
+  # glycolysis
+  {id = "g6p", name = "Glucose 6-phosphate", inchi_key = "NBSCHQHZLSJFNQ-GASJEMHNSA-N"},
+  {id = "f6p", name = "Fructose 6-phosphate", inchi_key = "GSXOAOHZAIYLCY-HSUXUTPPSA-N"},
+  {id = "fdp", name = "Fructose 1,6-bisphosphate", inchi_key = "RNBGYGVWRKECFJ-ARQDHWQXSA-N"},
+  {id = "dhap", name = "Dihydroxyacetone phosphate", inchi_key = "GNGACRATGGDKBX-UHFFFAOYSA-N"},
+  {id = "g3p", name = "Glyceraldehyde 3-phosphate", inchi_key = "LXJXRIRHZLFYRP-VKHMYHEASA-L"},
+  {id = "13dpg", name = "3-phosphoglyceroyl phosphate", inchi_key = "LJQLQCAXBUHEAZ-UWTATZPHSA-N"},
+  {id = "3pg", name = "3-phosphoglycerate", inchi_key = "OSJPPGNTCRNQQC-UHFFFAOYSA-N"},
+  {id = "2pg", name = "Glycerate 2-phosphate", inchi_key = "GXIURPTVHJPJLF-UWTATZPHSA-N"},
+  {id = "pep", name = "Phoshoenolpyruvate", inchi_key = "DTBNBXWJWCWCIK-UHFFFAOYSA-K"},
+  {id = "atp", name = "ATP C10H12N5O13P3", inchi_key = "ZKHQWZAMYRWXGA-KQYNXXCUSA-J"},
+  {id = "adp", name = "ADP C10H12N5O10P2", inchi_key = "XTWYTFMLZFPYCI-KQYNXXCUSA-K"},
+  {id = "pi", name = "Phosphate", inchi_key = "NBIIXXVUZAFLBC-UHFFFAOYSA-L"},
+  {id = "nad", name = "NAD+ C21H27N7O14P2", inchi_key = "BAWFJGJZGIEFAR-NNYOXOHSSA-M"},
+  {id = "nadh", name = "NADH C21H29N7O14P2", inchi_key = "BOPGDPNILDQYTO-NNYOXOHSSA-L"},
+  # ppp
+  {id = "6pgl", name = "6-phospho-glucono-1,5-lactone", inchi_key = ""},
+  {id = "6pgc", name = "6-phosphogluconate", inchi_key = ""},
+  {id = "ru5pD", name = "D-ribulose 5-phosphate", inchi_key = ""},
+  {id = "r5p", name = "Ribose 5-phosphate", inchi_key = ""},
+  {id = "xu5pD", name = "D-xylulose 5-phosphate", inchi_key = ""},
+  {id = "s7p", name = "Sedoheptulose 7-phosphate", inchi_key = ""},
+  {id = "e4p", name = "Erythrose 4-phosphate", inchi_key = ""},
+  {id = "2ddg6p", name = "2-dehydro-3-deoxygluconate 6-phosphate", inchi_key = ""},
+  {id = "pyr", name = "Pyruvate", inchi_key = ""},
+  {id = "s17bp", name = "sedoheptulose 1,7-bisphosphate", inchi_key = ""},
+  {id = "nadp", name = "NADP+ C21H28N7O17P3", inchi_key = ""},
+  {id = "nadph", name = "NADPH C21H30N7O17P3", inchi_key = ""},
+  {id = "co2", name = "CO2", inchi_key = ""},
+]
+
+metabolite_in_compartment = [
+  {metabolite_id = "f6p", compartment_id = "c", balanced = true},
+  {metabolite_id = "fdp", compartment_id = "c", balanced = true},
+  {metabolite_id = "dhap", compartment_id = "c", balanced = true},
+  {metabolite_id = "g3p", compartment_id = "c", balanced = true},
+  {metabolite_id = "13dpg", compartment_id = "c", balanced = true},
+  {metabolite_id = "3pg", compartment_id = "c", balanced = true},
+  {metabolite_id = "2pg", compartment_id = "c", balanced = true},
+  {metabolite_id = "pep", compartment_id = "c", balanced = true},
+  {metabolite_id = "g6p", compartment_id = "c", balanced = false},
+  {metabolite_id = "atp", compartment_id = "c", balanced = false},
+  {metabolite_id = "adp", compartment_id = "c", balanced = false},
+  {metabolite_id = "pi", compartment_id = "c", balanced = false},
+  {metabolite_id = "nad", compartment_id = "c", balanced = false},
+  {metabolite_id = "nadh", compartment_id = "c", balanced = false},
+  {metabolite_id = "6pgl", compartment_id = "c", balanced = true},
+  {metabolite_id = "6pgc", compartment_id = "c", balanced = true},
+  {metabolite_id = "ru5pD", compartment_id = "c", balanced = true},
+  {metabolite_id = "r5p", compartment_id = "c", balanced = true},
+  {metabolite_id = "xu5pD", compartment_id = "c", balanced = true},
+  {metabolite_id = "s7p", compartment_id = "c", balanced = true},
+  {metabolite_id = "e4p", compartment_id = "c", balanced = true},
+  {metabolite_id = "2ddg6p", compartment_id = "c", balanced = true},
+  {metabolite_id = "pyr", compartment_id = "c", balanced = true},
+  {metabolite_id = "s17bp", compartment_id = "c", balanced = true},
+  {metabolite_id = "nadp", compartment_id = "c", balanced = false},
+  {metabolite_id = "nadph", compartment_id = "c", balanced = false},
+  {metabolite_id = "co2", compartment_id = "c", balanced = false},
+]
+
+enzyme = [
+  {id = "PGI", name = "Phosphoglucose isomerase", subunits = 1},
+  {id = "PFKA", name = "Phosphofructokinase A", subunits = 4},
+  {id = "PFKB", name = "Phosphofructokinase B", subunits = 1},
+  {id = "FBPA", name = "Fructose bisphosphatase I or A", subunits = 4},
+  {id = "FBPB", name = "Fructose bisphosphatase II or B", subunits = 2},
+  {id = "FBAA", name = "Fructose bisphosphate aldolase A", subunits = 1},
+  {id = "FBAB", name = "Fructose bisphosphate aldolase B", subunits = 1},
+  {id = "TPI", name = "Triosephosphate isomerase", subunits = 1},
+  {id = "GAPD", name = "Glyceraldehyde 3-phosphate dehydrogenase", subunits = 1},
+  {id = "PGK", name = "Phosphoglycerate kinase", subunits = 1},
+  {id = "PGM", name = "Phosphoglycerate mutase", subunits = 1},
+  {id = "ENO", name = "Enolase", subunits = 1},
+  # ppp...
+  {id = "G6PDH2r", name = "Glucose 6-phosphate dehydrogenase", subunits = 1},
+  {id = "PGL", name = "6-phosphogluconolactonase", subunits = 1},
+  {id = "GND", name = "Phosphogluconate dehydrogenase", subunits = 1},
+  {id = "RPI", name = "Ribose 5-phosphate isomerase", subunits = 1},
+  {id = "RPE", name = "Ribulose 5-phosphate 3-epimerase", subunits = 1},
+  {id = "TKT1", name = "Transketolase 1", subunits = 1},
+  {id = "TKT2", name = "Transketolase 2", subunits = 1},
+  {id = "TALA", name = "Transaldolase", subunits = 1},
+  {id = "EDD", name = "6-phosphogluconate dehydratase", subunits = 1},
+  {id = "EDA", name = "2-dehydro-3-deoxy-phosphogluconate aldolase", subunits = 1},
+  {id = "PFK3", name = "Phosphofructokinase s7p", subunits = 1},
+  {id = "FBA3", name = "sedoheptulose 1,7-bisphosphate D-glyceraldehyde-3-phosphate-lyase", subunits = 1},
+]
+
+enzyme_reaction = [
+  {enzyme_id = "PGI", reaction_id = "PGI"},
+  {enzyme_id = "PFKA", reaction_id = "PFK"},
+  {enzyme_id = "PFKB", reaction_id = "PFK"},
+  {enzyme_id = "FBPA", reaction_id = "FBP"},
+  {enzyme_id = "FBPB", reaction_id = "FBP"},
+  {enzyme_id = "FBAA", reaction_id = "FBA"},
+  {enzyme_id = "FBAB", reaction_id = "FBA"},
+  {enzyme_id = "TPI", reaction_id = "TPI"},
+  {enzyme_id = "GAPD", reaction_id = "GAPD"},
+  {enzyme_id = "PGK", reaction_id = "PGK"},
+  {enzyme_id = "PGM", reaction_id = "PGM"},
+  {enzyme_id = "ENO", reaction_id = "ENO"},
+  {enzyme_id = "G6PDH2r", reaction_id = "G6PDH2r"},
+  {enzyme_id = "PGL", reaction_id = "PGL"},
+  {enzyme_id = "GND", reaction_id = "GND"},
+  {enzyme_id = "RPI", reaction_id = "RPI"},
+  {enzyme_id = "RPE", reaction_id = "RPE"},
+  {enzyme_id = "TKT1", reaction_id = "TKT1"},
+  {enzyme_id = "TKT2", reaction_id = "TKT2"},
+  {enzyme_id = "TALA", reaction_id = "TALA"},
+  {enzyme_id = "EDD", reaction_id = "EDD"},
+  {enzyme_id = "EDA", reaction_id = "EDA"},
+  {enzyme_id = "PFK3", reaction_id = "PFK3"},
+  {enzyme_id = "FBA3", reaction_id = "FBA3"},
+]
+
+[[reaction]]
+id = "PGI"
+name = "Phosphoglucose isomerase"
+mechanism = "reversible_michaelis_menten"
+stoichiometry = {g6p_c= -1, f6p_c= 1}
+
+# [[competitive_inhibition]]
+# # source: https://www.biocyc.org/gene?orgid=ECOLI&id=PGLUCISOM#tab=RXNS
+# enzyme_id = "PGI"
+# reaction_id = "PGI"
+# metabolite_id = "pep"
+# compartment_id = "c"
+
+[[reaction]]
+id = "PFK"
+name = "Phosphofructokinase"
+stoichiometry = {f6p_c= -1, atp_c= -1, fdp_c= 1, adp_c= 1}
+mechanism = "reversible_michaelis_menten"
+
+# [[allostery]]
+# # source: https://biocyc.org/gene?orgid=ECOLI&id=EG10699#tab=RXNS
+# enzyme_id = "PFKA"
+# reaction_id = "PFK"
+# metabolite_id = "adp"
+# compartment_id = "c"
+# modification_type = "activation"
+
+[[allostery]]
+# source: https://biocyc.org/gene?orgid=ECOLI&id=EG10699#tab=RXNS
+enzyme_id = "PFKA"
+reaction_id = "PFK"
+metabolite_id = "pep"
+compartment_id = "c"
+modification_type = "inhibition"
+
+# [[allostery]]
+# # source: https://biocyc.org/gene?orgid=ECOLI&id=EG10700#tab=RXNS
+# enzyme_id = "PFKB"
+# reaction_id = "PFK"
+# metabolite_id = "atp"
+# compartment_id = "c"
+# modification_type = "inhibition"
+
+# [[competitive_inhibition]]
+# # source: https://biocyc.org/gene?orgid=ECOLI&id=EG10700#tab=RXNS
+# enzyme_id = "PFKB"
+# reaction_id = "PFK"
+# metabolite_id = "fdp"
+# compartment_id = "c"
+
+[[reaction]]
+id = "FBP"
+name = "Fructose bisphosphatase"
+water_stoichiometry = -1
+stoichiometry = {fdp_c= -1, f6p_c= 1, pi_c= 1}
+mechanism = "reversible_michaelis_menten"
+
+[[allostery]]
+enzyme_id = "FBPA"
+reaction_id = "FBP"
+metabolite_id = "g6p"
+compartment_id = "c"
+modification_type = "inhibition"
+
+[[allostery]]
+enzyme_id = "FBPA"
+reaction_id = "FBP"
+metabolite_id = "pep"
+compartment_id = "c"
+modification_type = "activation"
+
+[[reaction]]
+id = "FBA"
+name = "Fructose bisphosphate aldolase"
+stoichiometry = {fdp_c= -1, dhap_c= 1, g3p_c= 1}
+mechanism = "reversible_michaelis_menten"
+
+[[reaction]]
+id = "TPI"
+name = "Triosephosphate isomerase"
+stoichiometry = {dhap_c= -1, g3p_c= 1}
+mechanism = "reversible_michaelis_menten"
+
+[[reaction]]
+id = "GAPD"
+name = "Glyceraldehyde 3-phosphate dehydrogenase"
+stoichiometry = {g3p_c= -1, nad_c= -1, pi_c= -1, 13dpg_c= 1, nadh_c= 1}
+mechanism = "reversible_michaelis_menten"
+
+[[reaction]]
+id = "PGK"
+name = "Phosphoglycerate kinase"
+stoichiometry = {3pg_c= -1, atp_c= -1, 13dpg_c= 1, adp_c= 1}
+mechanism = "reversible_michaelis_menten"
+
+[[reaction]]
+id = "PGM"
+name = "Phosphoglycerate mutase"
+stoichiometry = {2pg_c= -1, 3pg_c= 1}
+mechanism = "reversible_michaelis_menten"
+
+[[reaction]]
+id = "ENO"
+name = "Enolase"
+water_stoichiometry = 1
+stoichiometry = {2pg_c= -1, pep_c= 1}
+mechanism = "reversible_michaelis_menten"
+
+[[reaction]]
+id = "G6PDH2r"
+name = "Glucose 6-phosphate dehydrogenase"
+stoichiometry = {g6p_c= -1, nadp_c= -1, 6pgl_c= 1, nadph_c= 1}
+mechanism = "reversible_michaelis_menten"
+
+# [[competitive_inhibition]]
+# enzyme_id = "G6PDH2r"
+# reaction_id = "G6PDH2r"
+# metabolite_id = "nadph"
+# compartment_id = "c"
+# prior exploc: 0.035, 
+# prior scale: 0.5
+
+# [[allostery]]
+# enzyme_id = "G6PDH2r"
+# reaction_id = "G6PDH2r"
+# metabolite_id = "6pgc"
+# compartment_id = "c"
+# modification_type = "inhibition"
+# prior exploc: 0.05
+# prior scale: 1.5
+
+[[reaction]]
+id = "PGL"
+name = "6-phosphogluconolactonase"
+water_stoichiometry = -1
+stoichiometry = {6pgl_c= -1, 6pgc_c= 1}
+mechanism = "reversible_michaelis_menten"
+
+[[reaction]]
+id = "GND"
+name = "Phosphogluconate dehydrogenase"
+stoichiometry = {6pgc_c= -1, nadp_c= -1, ru5pD_c= 1, nadph_c= 1, co2_c= 1}
+mechanism = "reversible_michaelis_menten"
+
+[[reaction]]
+id = "RPI"
+name = "Ribose 5-phosphate isomerase"
+stoichiometry = {r5p_c= -1, ru5pD_c= 1}
+mechanism = "reversible_michaelis_menten"
+
+[[reaction]]
+id = "RPE"
+name = "Ribulose 5-phosphate 3-epimerase"
+stoichiometry = {ru5pD_c= -1, xu5pD_c= 1}
+mechanism = "reversible_michaelis_menten"
+
+[[reaction]]
+id = "TKT1"
+name = "Transketolase 1"
+stoichiometry = {r5p_c= -1, xu5pD_c= -1, s7p_c= 1, g3p_c= 1}
+mechanism = "reversible_michaelis_menten"
+
+[[reaction]]
+id = "TKT2"
+name = "Transketolase 2"
+stoichiometry = {e4p_c= -1, xu5pD_c= -1, f6p_c= 1, g3p_c= 1}
+mechanism = "reversible_michaelis_menten"
+
+[[reaction]]
+id = "TALA"
+name = "Transaldolase"
+stoichiometry = {s7p_c= -1, g3p_c= -1, e4p_c= 1, f6p_c= 1}
+mechanism = "reversible_michaelis_menten"
+
+[[reaction]]
+id = "EDD"
+name = "6-phosphogluconate dehydratase"
+water_stoichiometry = 1
+stoichiometry = {6pgc_c= -1, 2ddg6p_c= 1}
+mechanism = "reversible_michaelis_menten"
+
+[[reaction]]
+id = "EDA"
+name = "2-dehydro-3-deoxy-phosphogluconate aldolase"
+stoichiometry = {2ddg6p_c= -1, g3p_c= 1, pyr_c = 1}
+mechanism = "reversible_michaelis_menten"
+
+[[reaction]]
+id = "PFK3"
+name = "Phosphofructokinase s7p"
+stoichiometry = {s7p_c= -1, atp_c= -1, s17bp_c= 1, adp_c= 1}
+mechanism = "reversible_michaelis_menten"
+
+[[reaction]]
+id = "FBA3"
+name = "sedoheptulose 1,7-bisphosphate D-glyceraldehyde-3-phosphate-lyase"
+stoichiometry = {s17bp_c= -1, e4p_c= 1, dhap_c= 1}
+mechanism = "reversible_michaelis_menten"
+
+[[reaction]]
+id = "pepdrain"
+name = "pepdrain"
+stoichiometry = {pep_c= -1}
+mechanism = "drain"
+
+[[reaction]]
+id = "pyrdrain"
+name = "pyr drain"
+stoichiometry = {pyr_c= -1}
+mechanism = "drain"
+

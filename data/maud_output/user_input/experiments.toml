@@ -1,0 +1,74 @@
+[[experiment]]
+id = "Evo04Evo01EP"
+is_train = true
+is_test = true
+measurements = [
+  {target_type = "mic", metabolite = "f6p", compartment = "c", value = 0.641002919, error_scale = 0.146144875},
+  {target_type = "mic", metabolite = "fdp", compartment = "c",  value = 4.542860133, error_scale = 0.23719657},
+  {target_type = "mic", metabolite = "dhap", compartment = "c", value = 1.895018005, error_scale = 0.078636129},
+  {target_type = "mic", metabolite = "pep", compartment = "c", value = 0.241878077, error_scale = 0.065583914},
+  {target_type = "mic", metabolite = "3pg", compartment = "c", value = 0.953268234, error_scale = 0.5},
+  {target_type = "mic", metabolite = "2pg", compartment = "c", value = 0.953268234, error_scale = 0.5},
+  {target_type = "mic", metabolite = "6pgc", compartment = "c", value = 0.664725857, error_scale = 0.360471142},
+  {target_type = "mic", metabolite = "r5p", compartment = "c", value = 0.429457951, error_scale = 0.352427210},
+  {target_type = "mic", metabolite = "s7p", compartment = "c", value = 0.316649445, error_scale = 0.181052029},
+  {target_type = "flux", reaction = "FBA", value = 2.53660342, error_scale = 0.084914672},
+  {target_type = "flux", reaction = "FBP", value = 0.008771676, error_scale = 0.000516973},
+  {target_type = "flux", reaction = "ENO", value = 6.808704164, error_scale = 0.041246486},
+  {target_type = "flux", reaction = "G6PDH2r", value = 0.188050845, error_scale = 0.002993350},
+  {target_type = "flux", reaction = "RPI", value = -0.432485490, error_scale = 0.002255207},
+  {target_type = "flux", reaction = "TALA", value = -1.344643262, error_scale = 0.084802940},
+  {target_type = "flux", reaction = "EDD", value = 0.000277938, error_scale = 0.002569563},
+  {target_type = "flux", reaction = "PFK3", value = 1.261527685,error_scale = 0.085041089},
+]
+
+# [[experiment]]
+# id = "Evo04pgiEvo01EP"
+# is_train = true
+# is_test = false
+# measurements = [
+#   {target_type = "mic", metabolite = "f6p", compartment = "c",  value = 0.006999565, error_scale = 0.032805725},
+#   {target_type = "mic", metabolite = "fdp", compartment = "c",  value = 2.452365055, error_scale = 0.293104825},
+#   {target_type = "mic", metabolite = "dhap", compartment = "c", value = 2.132128178, error_scale = 0.283893472},
+#   {target_type = "mic", metabolite = "pep", compartment = "c",  value = 0.337268313, error_scale = 0.059083075},
+#   {target_type = "mic", metabolite = "3pg", compartment = "c",  value = 1.469875831, error_scale = 0.5},
+#   {target_type = "mic", metabolite = "2pg", compartment = "c",  value = 1.469875831, error_scale = 0.5},
+#   {target_type = "flux", reaction = "ENO", value = 2.870150189, error_scale = 0.169982741},
+#   {target_type = "flux", reaction = "FBA", value = 0.513059617, error_scale = 0.055208685},
+#   {target_type = "flux", reaction = "FBP", value = -0.245024191, error_scale = 0.198319226},
+# ]
+
+
+# [[experiment]]
+# id = "Evo04ptsHIcrrEvo01EP"
+# is_train = true
+# is_test = false
+# measurements = [
+#   {target_type = "mic", metabolite = "f6p", compartment = "c", value = 1.514851878, error_scale = 0.348376831},
+#   {target_type = "mic", metabolite = "fdp", compartment = "c", value = 10.07508363, error_scale = 0.136032491},
+#   {target_type = "mic", metabolite = "dhap", compartment = "c", value = 14.5323154, error_scale = 0.209677183},
+#   {target_type = "mic", metabolite = "pep", compartment = "c", value = 1.692546935, error_scale = 0.244151206},
+#   {target_type = "mic", metabolite = "3pg", compartment = "c", value = 3.143062756, error_scale = 0.5},
+#   {target_type = "mic", metabolite = "2pg", compartment = "c", value = 3.143062756, error_scale = 0.5},
+#   {target_type = "flux", reaction = "ENO", value = 5.17013702, error_scale = 0.377364889},
+#   {target_type = "flux", reaction = "FBA", value = 3.139975199, error_scale = 0.069823218},
+#   {target_type = "flux", reaction = "FBP", value = 0.554494196, error_scale = 0.98778325},
+# ]
+
+# [[experiment]]
+# id = "Evo04sdhCBEvo01EP"
+# is_train = true
+# is_test = false
+# measurements = [
+#   {target_type = "mic", metabolite = "f6p", compartment = "c", value = 0.62709331, error_scale = 0.213181612},
+#   {target_type = "mic", metabolite = "fdp", compartment = "c", value = 2.438750616, error_scale = 0.139183132},
+#   {target_type = "mic", metabolite = "dhap", compartment = "c", value = 1.427983872, error_scale = 0.173547175},
+#   {target_type = "mic", metabolite = "pep", compartment = "c", value = 0.28337041, error_scale = 0.111947595},
+#   {target_type = "mic", metabolite = "3pg", compartment = "c", value = 0.96546796, error_scale = 0.5},
+#   {target_type = "mic", metabolite = "2pg", compartment = "c", value = 0.96546796, error_scale = 0.5},
+#   {target_type = "flux", reaction = "ENO", value = 6.6910368, error_scale = 0.272577576},
+#   {target_type = "flux", reaction = "FBA", value = 3.765104359, error_scale = 0.049340835},
+#   {target_type = "flux", reaction = "FBP", value = 0.134573983, error_scale = 0.180069181},
+# ]
+
+
