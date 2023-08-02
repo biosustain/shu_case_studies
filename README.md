@@ -1,5 +1,4 @@
 # Shu cases studies
-
 This repository contains notebooks for reproducing the two figures in the manuscript _Shu: Visualization of high dimensional Biological Pathways_.
 
 ## Figure 1: maud case study
@@ -17,7 +16,7 @@ install_cmdstan
 maud sample models/maud_ecoli_glycolysis_and_ppp
 ```
 
-The notebook [`notebooks/1_shu_maud.ipynb`](./notebooks/1_shu_maud.ipynb)
+The notebook [`notebooks/1_shu_maud_kcat_priors.ipynb`](./notebooks/1_shu_maud_kcat_priors.ipynb)
 performs the required data wrangling using `pandas` (without [`ggshu`](https://pypi.org/project/ggshu)) to produce the
 input for [`shu`](https://github.com/biosustain/shu) (click on "Data" at https://biosustain.github.com/shu)
 at [`data/maud_output.metabolism.json`](./data/maud_output.metabolism.json). The network map is at [`maps/ecoli_map.json`](./maps/ecoli_map.json).
@@ -29,5 +28,4 @@ arranges the omics data, computes the flux sampling (using `models/iCLAU786.xml`
 and uses [`ggshu`](https://pypi.org/project/ggshu) to produce the input for [`shu`](https://github.com/biosustain/shu)
 at [`data/omics.metabolism.json`](./data/omics.metabolism.json).
 
-The map is a custom one for Clostridium autoethanogenum and is available at [`data/case_study_map.json`
-](./maps/cauto_map.json).
+The map is a custom one for Clostridium autoethanogenum and is available at [`data/cauto_map.json`](./maps/cauto_map.json).
